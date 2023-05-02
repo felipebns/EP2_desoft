@@ -27,14 +27,3 @@ def define_posicoes(linha, coluna, orientacao, tamanho):
             retorno2.append(retorno)
             i += 1
     return retorno2
-    
-
-
-
-
-
-
-print(define_posicoes(linha = 2,
-coluna = 4,
-orientacao = "vertical",
-tamanho = 3))
