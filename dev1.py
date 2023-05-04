@@ -73,3 +73,50 @@ def afundados(frota, tabuleiro):
             if afundada:
                 afundados += 1
     return afundados
+
+def posicao_valida(frota, linha, coluna, orientacao, tamanho):
+    navio = []
+    for k,v in frota.items():
+        for posicoes in v:
+            navio.append(posicoes)
+    def define_posicoes(linha, coluna, orientacao, tamanho):
+        i = 0
+        retorno = [0,0]*tamanho
+        retorno2 = []
+        grid = [
+        [0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0],
+        ] 
+        if orientacao == 'vertical':
+            retorno = [0,coluna]*tamanho
+            while i < tamanho:
+                retorno = [linha+ i, coluna]
+                retorno2.append(retorno)
+                i += 1
+        elif orientacao == 'horizontal':
+            retorno = [linha,0]*tamanho
+            while i < tamanho:
+                retorno = [linha, coluna + i]
+                retorno2.append(retorno)
+                i += 1
+        return retorno2
+    x = (define_posicoes(linha, coluna, orientacao, tamanho))
+    for y in x:
+        if y[0] > 9:
+            return False
+        elif y[1] > 9:
+            return False
+
+    for e in navio:
+        for ee in e:
+            if ee in x:
+                return False
+    return True
