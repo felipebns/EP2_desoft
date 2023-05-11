@@ -223,4 +223,43 @@ while jogando:
     if abatidos == 10:
         print('Parabéns! Você derrubou todos os navios do seu oponente!')
         jogando = False
+jogando = True
+lista = []
+verifica = True
+while jogando:
+    while verifica:
+        while True:
+            linhaAtaque = int(input('Jogador, qual linha deseja atacar? '))
+            if linhaAtaque < 0 or linhaAtaque > 9:
+                print('Linha inválida!')
+                continue
+            break
+        while True:
+            colunaAtaque = int(input('Jogador, qual coluna deseja atacar? '))
+            if colunaAtaque < 0 or colunaAtaque > 9:
+                print('Coluna inválida!')
+                continue
+            break
+        if [linhaAtaque, colunaAtaque] in lista:
+            print(('A posição linha {0} e coluna {1} já foi informada anteriormente!').format(linhaAtaque, colunaAtaque))
+            continue
+        else:
+            lista.append([linhaAtaque, colunaAtaque])
+            print(tabuleiro_oponente)
+            verifica = False
+    tabuleiro_oponente = faz_jogada(tabuleiro_oponente, linhaAtaque, colunaAtaque)
+    abatidos = afundados(frota_oponente, tabuleiro_oponente)
+    if abatidos == 10:
+        print('Parabéns! Você derrubou todos os navios do seu oponente!')
+        jogando = False
+    else:
+        print('Seu oponente está atacando na linha {0} e coluna {1}.'.format(linhaOponente, colunaOponente))
+        tabuleiro_jogador = faz_jogada(tabuleiro_jogador, linhaOponente, colunaOponente)
+        abatidos_jogador = afundados(frota, tabuleiro_jogador)
+        if abatidos_jogador == 10:
+            print('Xi! O oponente derrubou toda a sua frota =(')
+            jogando = False
+        else:
+            verifica = True
+
 
