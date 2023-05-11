@@ -251,8 +251,8 @@ while jogando:
         print('Parabéns! Você derrubou todos os navios do seu oponente!')
         jogando = False
     else:
-        print('Seu oponente está atacando na linha {0} e coluna {1}.'.format(linhaOponente, colunaOponente))
-        tabuleiro_jogador = faz_jogada(tabuleiro_jogador, linhaOponente, colunaOponente)
+        print('Seu oponente está atacando na linha {0} e coluna {1}.'.format(linhaAtaque, colunaAtaque))
+        tabuleiro_jogador = faz_jogada(tabuleiro_jogador, linhaAtaque, colunaAtaque)
         abatidos_jogador = afundados(frota, tabuleiro_jogador)
         if abatidos_jogador == 10:
             print('Xi! O oponente derrubou toda a sua frota =(')
