@@ -223,10 +223,8 @@ while jogando:
     if abatidos == 10:
         print('Parabéns! Você derrubou todos os navios do seu oponente!')
         jogando = False
-jogando = True
-lista = []
-verifica = True
-while jogando:
+    lista = []
+    verifica = True
     while verifica:
         while True:
             linhaAtaque = int(input('Jogador, qual linha deseja atacar? '))
